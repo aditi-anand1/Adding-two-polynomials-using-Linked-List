@@ -1,21 +1,40 @@
+/**
+ * Problem: Given two polynomial numbers represented by a linked list add these lists means add the coefficients who have same variable powers.
+ * 
+ * GeeksForGeeks URL: https://www.geeksforgeeks.org/adding-two-polynomials-using-linked-list/
+ * Time Complexity: O(m + n)
+ */
+
+// ----------------- CODE -------------------
 #include<iostream>
 using namespace std;
+
+/**
+ * Node structure containing power and coefficient of variable
+ */
 struct node{
     int data;
     int power;
     node* next;
 };
 
+
+/**
+ * Method to create a node for the linkedlist
+ * @param head: Pointer of the head node of the list.
+ * @param n: Size of the list.
+ * @return head: Pointer of the head node after creating the list.
+ */ 
 node* creatingList(node* head, int n){
     node* ptr=head;
     while(n--){
         node* temp=new node();
         
-        int cof,p;
-        cout<<"enter the coefficient and the power respectively"<<endl;
-        cin>>cof>>p;
-        temp->data=cof;
-        temp->power=p;
+        int coefficient,power;
+        cout<<"Enter the coefficient and the power respectively"<<endl;
+        cin>>coefficient>>power;
+        temp->data=coefficient;
+        temp->power=power;
         temp->next=NULL;
         if(head==NULL){
             head=temp;
@@ -28,15 +47,30 @@ node* creatingList(node* head, int n){
     }
     return head;
 }
+
+
+/**
+ * Method to find the size of linkedlist
+ * @param head: Pointer of the head node of the list.
+ * @return length: Gives the size of the list.
+ */
+
 int lengthOfList(node* head){
     node* ptr=head;
-    int i=0;
+    int length=0;
     while(ptr!=NULL){
-        i++;
+        length++;
         ptr=ptr->next;
     }
-    return i;
+    return lenght;
 }
+
+/**
+ * Method to add the two polynomial linkedlist
+ * @param head1: Pointer of the head node of the list1.
+ * @param head2: Pointer of the head node of the list2.
+ * @return head: Pointer of the head node after adding  the polynomial of two lists.
+ */
 
 node* addingPolynomial(node* head1, node* head2){
     int n1=lengthOfList(head1);
@@ -79,6 +113,12 @@ node* addingPolynomial(node* head1, node* head2){
    return head;
 }
 
+
+/**
+ * Method to print the linkedlist
+ * @param head: Pointer of the head node of the list.
+ */
+
 void print(node* head){
     node* ptr=head;
     while(ptr!=NULL){
@@ -86,6 +126,7 @@ void print(node* head){
         ptr=ptr->next;
     }
 }
+
 int main(){
     int s1,s2;
     node* head1=NULL;
